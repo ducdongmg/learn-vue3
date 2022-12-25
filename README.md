@@ -1,1 +1,1 @@
-# learn-vue3
+[resource](https://youtu.be/AjWBhjGhq-w)
