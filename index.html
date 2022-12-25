@@ -13,6 +13,16 @@
 
     <section id="app">
         <h1>helo {{message}}</h1>
+        <div>Name is {{ isShowName ? `${firstName} ${lastName}` : '' }}</div>
+        <p v-if="isShowHide">this is show/hide base on v-if</p>
+        <button v-on:click="onChangeName">change name</button>
+
+        <hr>
+
+        <h3>List product </h3>
+        <div v-for="pro in productComputed">
+            <span :class="className">{{pro.name}} : {{pro.price}}</span>
+        </div>
     </section>
     <!-- built files will be auto injected -->
 
