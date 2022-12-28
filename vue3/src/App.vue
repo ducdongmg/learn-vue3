@@ -1,15 +1,24 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <header-component />
+  <HelloWorld ref="hello" msg="Welcome to Your Vue.js App" />
+  <button @click="showInfo">Click to show console log</button>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+import HeaderPage from "./components/HeaderPage.vue";
 
 export default {
   name: "App",
   components: {
     HelloWorld,
+    HeaderComponent: HeaderPage,
+  },
+  methods: {
+    showInfo() {
+      console.log(this.$refs.hello.msg);
+    },
   },
 };
 </script>

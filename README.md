@@ -16,4 +16,8 @@
  - dynamic class
  - computed
 
-
+#### 4 [cli](https://youtu.be/jClufqXd4c0)
+ - setup by cli
+ - vue refs (reference): giúp component cha truy cập vào data của component con
+   Khai báo tại nơi call component con: `<HelloWorld ref="hello"`
+   Dùng tại js code `this.$refs.hello.msg`
