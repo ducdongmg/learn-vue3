@@ -18,9 +18,9 @@
     aria-hidden="true"
   >
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content" :class="{'bg-purple': theme === 'example'}">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
           <button
             type="button"
             class="btn-close"
@@ -28,12 +28,13 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body">...</div>
+        <div class="modal-body">{{content}}</div>
         <div class="modal-footer">
           <button
             type="button"
             class="btn btn-secondary"
             data-bs-dismiss="modal"
+            @click="onCloseModal"
           >
             Close
           </button>
@@ -45,8 +46,34 @@
 </template>
 <script>
 // template from https://getbootstrap.com/docs/5.0/components/modal/
-export default {};
+export default {
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    content: {
+      type: String,
+      default: "this is default content",
+    },
+    theme: {
+      type: String,
+      validator(value) {
+        return ["example", "sale", "contact"].includes(value);
+      },
+      default: "example",
+    },
+  },
+  emits: ["closeModal"],
+  methods: {
+    onCloseModal() {
+      console.log("call onCloseModal ");
+      this.$emit("closeModal");
+    },
+  },
+};
 </script>
+
 <style scoped lang="css">
 modal {
   position: fixed;
@@ -65,7 +92,7 @@ modal {
 }
 .modal-dialog {
   max-width: 500px;
-  margin: 1.75rem auto;
+  margin: 0 auto;
 }
 .modal-content {
   position: relative;
@@ -143,5 +170,9 @@ modal {
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.bg-purple {
+  background-color: rgb(180, 146, 180);
 }
 </style>
