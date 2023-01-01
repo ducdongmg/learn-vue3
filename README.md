@@ -65,4 +65,9 @@
     <child-component @closeModal="parentMethod()"/>
    ```
 
- - Dùng `slot` để đẩy những nội dung được bổ sung ở nơi gọi chuyển vào trong component
+ - Dùng [slot](https://vuejs.org/guide/components/slots.html) để đẩy những nội dung được bổ sung ở nơi gọi chuyển vào trong component
+
+ - dủng [event modifier](https://vuejs.org/guide/essentials/event-handling.html#event-modifiers) để custome event  
+ `@click.self="dontCallChildClickEvent"`
+
+ - dùng [teleport component](https://vuejs.org/guide/built-ins/teleport.html#teleport) để dịch chuyển vị trí của component (đặc biệt hữu ích khi dùng cho modal)

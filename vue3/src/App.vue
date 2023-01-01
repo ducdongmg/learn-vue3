@@ -2,19 +2,21 @@
   <img alt="Vue logo" src="./assets/logo.png" />
   <header-component />
   <button @click="toggleModal">Show/Hide modal</button><br />
-  <boostrap-modal
-    v-if="isShowModal"
-    title="Header title"
-    content="Text content"
-    theme="example"
-    @closeModal="toggleModal"
-  >
-    <template v-slot:header>
-      <h2>This is slot header</h2>
-    </template>
-    <p>This is a content for slot default</p>
-    <label>It can be multiple element</label>
-  </boostrap-modal>
+  <Teleport to="body">
+    <boostrap-modal
+      v-if="isShowModal"
+      title="Header title"
+      content="Text content"
+      theme="example"
+      @closeModal="toggleModal"
+    >
+      <template v-slot:header>
+        <h2>This is slot header</h2>
+      </template>
+      <p>This is a content for slot default</p>
+      <label>It can be multiple element</label>
+    </boostrap-modal>
+  </Teleport>
   <!-- <HelloWorld ref="hello" msg="Welcome to Your Vue.js App" /> -->
   <!-- <button @click="showInfo">Click to show console log</button> -->
 </template>
