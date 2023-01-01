@@ -20,6 +20,7 @@
     <div class="modal-dialog">
       <div class="modal-content" :class="{'bg-purple': theme === 'example'}">
         <div class="modal-header">
+          <slot name="header"></slot>
           <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
           <button
             type="button"
@@ -29,6 +30,7 @@
           ></button>
         </div>
         <div class="modal-body">{{content}}</div>
+        <slot/>
         <div class="modal-footer">
           <button
             type="button"

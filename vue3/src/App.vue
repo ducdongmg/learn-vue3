@@ -8,7 +8,13 @@
     content="Text content"
     theme="example"
     @closeModal="toggleModal"
-  />
+  >
+    <template v-slot:header>
+      <h2>This is slot header</h2>
+    </template>
+    <p>This is a content for slot default</p>
+    <label>It can be multiple element</label>
+  </boostrap-modal>
   <!-- <HelloWorld ref="hello" msg="Welcome to Your Vue.js App" /> -->
   <!-- <button @click="showInfo">Click to show console log</button> -->
 </template>

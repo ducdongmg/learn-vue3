@@ -50,7 +50,7 @@
       };
     ```
 
- - dùng emit để call method hoặc variable từ component cha.
+ - dùng `emit` để call method hoặc variable từ component cha.
   tại component con
    ```javascript
     // tại conponent con
@@ -64,3 +64,5 @@
     // tại component cha
     <child-component @closeModal="parentMethod()"/>
    ```
+
+ - Dùng `slot` để đẩy những nội dung được bổ sung ở nơi gọi chuyển vào trong component
